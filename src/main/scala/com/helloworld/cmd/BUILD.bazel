@@ -1,9 +1,0 @@
-# Build cmd
-load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library")
-
-scala_library (
-    name = "Runner",
-    srcs = ["Runner.scala"],
-    main_class = "com.helloworld.cmd.Runner",
-    deps = ["//:greeter"],
-)

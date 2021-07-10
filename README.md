@@ -1,41 +1,25 @@
 # Bazel template
 
-A simple example of a Scala multi-module project configured to build
-using [Bazel](https://www.bazel.build).
-
-Including:
-
-```text
-.
-├── BUILD.bazel
-├── README.md
-├── WORKSPACE.bazel
-└── src/main/scala/com/helloworld
-    ├── Greeting.scala
-    ├── Runner.scala
-    └── cmd
-        ├── BUILD.bazel
-        └── Runner.scala
-```
+A simple example of a Scala multi-module project configured to *build*, *test*, *format* and *analyse* scala using [Bazel](https://www.bazel.build).
 
 ## Build
 
-Top-level build
+## Test
 
-```bash
-bazel build //:Runner
-```
+## Format
 
-Build sub-project
+## Analyse
 
-```bash
-bazel build //src/main/scala/com/helloworld/cmd:Runner
-```
-
-## Review the dependency graph
+To analyze the dependency graph you can ask Bazel to make a graph with all
+dependencies which your app has. 
 
 ```bash
 bazel query  --nohost_deps --noimplicit_deps 'deps(//:Runner)' --output graph > graph.dot
+```
+
+You can convert the output graph to png with the `dot` utility.
+
+```bash
 dot graph.dot -Tpng -o graph.png
 ```
 
