@@ -26,3 +26,6 @@ dot graph.dot -Tpng -o graph.png
 ## Reference
 
 <https://github.com/bazelbuild/rules_scala>
+
+## License
+This repository is developed under MIT License. See `License.md` for more information.
