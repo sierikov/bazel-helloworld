@@ -1,4 +1,4 @@
-package com.helloworld
+package com.two.helloworld
 
 import Greeting._
 
