@@ -2,6 +2,13 @@
 
 A simple example of a Scala multi-module project configured to *build*, *test*, *format* and *analyse* scala using [Bazel](https://www.bazel.build).
 
+## Structure
+
+The repository represents one service, that has two modules:
+*one* and *two*. The module *two* depends on module *one*.
+The module *one* has no dependencies inside. This is done to
+show the difference in the build behaivour. 
+
 ## Build
 
 ## Test
