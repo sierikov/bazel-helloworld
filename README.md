@@ -11,6 +11,17 @@ show the difference in the build behaivour.
 
 ## Build
 
+To build the service (for example `service_one`) run:
+
+```
+bazel build service_one
+```
+
+Note that if you build `service_one` then bazel will build *only* all for 
+`service_one` and nothing for `service_two`. But the `service_two` depends on the 
+`service_one`. So if we run `bazel build service_two` bazel will build
+`service_one` and then `service_two`.
+
 ## Test
 
 ## Format

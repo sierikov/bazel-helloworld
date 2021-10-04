@@ -1,7 +1,7 @@
 package com.two.helloworld
 
-import Greeting._
+import com.one.helloworld._
 
 object Runner extends App {
-  Greeting.sayHi()
+  Greeting.sayHi("from module Two by dependecy")
 }

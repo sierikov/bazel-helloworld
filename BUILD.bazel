@@ -1,14 +1,18 @@
 load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library", "scala_binary")
 
-scala_library (
-    name = "greeter",
-    srcs = ["src/main/scala/com/helloworld/Greeting.scala"],
-    visibility = ["//src/main/scala/com/helloworld/cmd:__pkg__"]
+scala_binary(
+  name = "service_one",
+  srcs = glob(["service/one/src/main/scala/**/*.scala"]),
+  main_class = "com.one.helloworld.Runner",
+  visibility = ["//visibility:public"],
 )
 
-scala_binary (
-    name = "Runner",
-    srcs = ["src/main/scala/com/helloworld/Runner.scala"],
-    main_class = "com.helloworld.Runner",
-    deps = [":greeter"],
+scala_binary(
+  name = "service_two",
+  srcs = glob(["service/two/src/main/scala/**/*.scala"]),
+  main_class = "com.two.helloworld.Runner",
+  visibility = ["//visibility:public"],
+  deps = [
+    ":service_one"
+  ]
 )
