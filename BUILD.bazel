@@ -1,10 +1,19 @@
-load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library", "scala_binary")
+load("//:project/plugins.bzl", "scala_binary", "scala_test")
+
+filegroup(
+  name = "scalafmt-conf",
+  srcs = [".scalafmt.conf"],
+  visibility = ["//visibility:public"],
+)
+
 
 scala_binary(
   name = "service_one",
   srcs = glob(["service/one/src/main/scala/**/*.scala"]),
   main_class = "com.one.helloworld.Runner",
   visibility = ["//visibility:public"],
+  config = ":scalafmt-conf",
+  format = True,
 )
 
 scala_binary(
@@ -12,6 +21,8 @@ scala_binary(
   srcs = glob(["service/two/src/main/scala/**/*.scala"]),
   main_class = "com.two.helloworld.Runner",
   visibility = ["//visibility:public"],
+  config = ":scalafmt-conf",
+  format = True,
   deps = [
     ":service_one"
   ]

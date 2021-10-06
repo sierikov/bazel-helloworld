@@ -22,9 +22,33 @@ Note that if you build `service_one` then bazel will build *only* all for
 `service_one`. So if we run `bazel build service_two` bazel will build
 `service_one` and then `service_two`.
 
+If you want to build *all* targets at once run:
+
+```
+bazel build //:all
+```
+
+The targets will be in `bazel-bin/` folder.
+
 ## Test
 
 ## Format
+
+To test the formating of the code accoringly to `.scalafmt.conf` file run:
+
+```
+bazel run <target>.format-test
+```
+
+Example: `bazel run service_one.format-test`
+
+If you have any style errors you can ask bazel to "clean up" your code with:
+
+```
+bazel run <target>.format
+```
+
+Example: `bazel run service_one.format-test`
 
 ## Analyse
 
